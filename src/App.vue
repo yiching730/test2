@@ -1,70 +1,52 @@
+
 <template>
   <div id="app">
-   <Card :cardData="cardData" />
+    <div id="nav">
+      <router-link to="/">回首頁</router-link> |
+      <router-link to="/news">最新消息</router-link> |
+      <router-link to="/about">關於我們</router-link> |
+      <router-link to="/content">內容</router-link>
+    </div>
+    <Breadcrumb />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Card from './components/Card.vue'
-  export default {
-    name: 'app',
-    components:{
-      Card
-    },
-    data(){
-      return{
-        cardData:[
-          {
-            name:'Adam',
-            birthday:'1995.08.12',
-            mail:'adam@xxx.com'
-          },
-          {
-            name:'Jack',
-            birthday:'1980.02.23',
-            mail:'jack@xxx.com'
-          },
-          {
-            name:'Candy',
-            birthday:'1982.05.06',
-            mail:'candy@xxx.com'
-          },
-          {
-            name:'Louis',
-            birthday:'1984.11.21',
-            mail:'loui@xxx.com'
-          },
-          {
-            name:'Lurry',
-            birthday:'1982.01.17',
-            mail:'lurry@xxx.com'
-          }
-        ]
-      }
-    }
-  }
-</script>
-
-<style></style>
-
-<!--  原來程式碼
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+import Breadcrumb from './components/Breadcrumb'
 
 export default {
-  name: 'App',
+  name: 'about',
   components: {
-    HelloWorld
+    Breadcrumb
   }
 }
 </script>
+
+<style scoped>
+  #nav {
+    background: #42b983;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+
+
+<!--
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
+</template>
 
 <style>
 #app {
@@ -73,8 +55,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
 -->
- 
